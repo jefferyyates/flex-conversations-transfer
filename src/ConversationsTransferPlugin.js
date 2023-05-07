@@ -22,5 +22,20 @@ export default class ConversationsTransferPlugin extends FlexPlugin {
     handleChatTransferShowDirectory(manager);
     handleChatTransfer();
     registerCustomChatTransferAction();
+
+    // adding hidden filter for workers
+    flex.WorkerDirectoryTabs.defaultProps.hiddenWorkerFilter = 'data.activity_name CONTAINS "Available"';
+
+    // adding hidden filter for queues, there may be more than one.
+    let filterString = '';
+    let filterSeparator = 'data.queue_name CONTAINS ';
+    if(manager.workerClient.attributes.routing.skills.includes("Outbound")) {
+      filterString = filterString + filterSeparator + '"Outbound SMS"';
+      filterSeparator = ' OR data.queue_name CONTAINS '
+    }
+    if(manager.workerClient.attributes.routing.skills.includes("Inbound")) {
+      filterString = filterString + filterSeparator + '"RoadsideAssistance"';
+    }
+    flex.WorkerDirectoryTabs.defaultProps.hiddenQueueFilter = filterString;
   }
 }
