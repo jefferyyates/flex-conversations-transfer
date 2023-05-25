@@ -29,7 +29,15 @@ export default class ConversationsTransferPlugin extends FlexPlugin {
     // adding hidden filter for queues, there may be more than one.
     let filterString = '';
     let filterSeparator = 'data.queue_name CONTAINS ';
-    if(manager.workerClient.attributes.routing.skills.includes("Outbound")) {
+    if(manager.workerClient.attributes.routing.skills.includes("Outbound KMI")) {
+      filterString = filterString + filterSeparator + '"Outbound KMI"';
+      filterSeparator = ' OR data.queue_name CONTAINS '
+    }
+    if(manager.workerClient.attributes.routing.skills.includes("Outbound CT")) {
+      filterString = filterString + filterSeparator + '"Outbound CT"';
+      filterSeparator = ' OR data.queue_name CONTAINS '
+    }
+    if(manager.workerClient.attributes.routing.skills.includes("Outbound SMS")) {
       filterString = filterString + filterSeparator + '"Outbound SMS"';
       filterSeparator = ' OR data.queue_name CONTAINS '
     }
