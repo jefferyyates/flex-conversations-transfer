@@ -17,6 +17,9 @@ const getRoutingParams = (
     transferTargetType,
   };
 
+  // change direction to defeat built-in auto accept in Flex
+  newAttributes.direction = "inbound";
+
   const routingParams = {
     properties: {
       task_channel_unique_name: taskRouterChannel,
