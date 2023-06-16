@@ -1,0 +1,23 @@
+configInfo
+account              SK642df5b52b6583a9548e62c5a739733f                                                       
+serviceSid           ZS049f9ffa30d6d12e39c35b1c9a02d302                                                       
+environment          dev                                                                                      
+rootDirectory        /Users/jyates/src/clients/CAA/flex-conversations-transfer/conversationsTransferServerless
+dependencies         twilio,twilio-flex-token-validator,@twilio/runtime-handler                               
+environmentVariables TWILIO_FLEX_WORKSPACE_SID,TWILIO_FLEX_CHAT_TRANSFER_WORKFLOW_SID                         
+runtime              node16                                                                                   
+
+deploymentInfo
+domain            conversationstransferserverless-1284-dev.twil.io                                                                                 
+serviceName                                                                                                                                        
+serviceSid        ZS049f9ffa30d6d12e39c35b1c9a02d302                                                                                               
+environmentSuffix dev                                                                                                                              
+environmentSid    ZE4ab69a51279a03ca438a6d94f2a381c6                                                                                               
+buildSid          ZB7dea6395246050956ec5969be7fad6ac                                                                                               
+runtime           node16                                                                                                                           
+viewLiveLogs      https://www.twilio.com/console/functions/editor/ZS049f9ffa30d6d12e39c35b1c9a02d302/environment/ZE4ab69a51279a03ca438a6d94f2a381c6
+
+functions
+public /transferConversation https://conversationstransferserverless-1284-dev.twil.io/transferConversation
+
+assets
